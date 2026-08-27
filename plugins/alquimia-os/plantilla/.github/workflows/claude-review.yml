@@ -1,4 +1,5 @@
-# COSTO: cada corrida consume minutos de GitHub Actions Y uso de tu suscripción.
+# COSTO: cada corrida consume minutos de GitHub Actions Y cupo de tu suscripción
+# (autentica con CLAUDE_CODE_OAUTH_TOKEN, no con una cuenta de API de prepago).
 # Por eso NO incluye "synchronize": con él, cada push a la rama dispara una revisión
 # entera. Un PR con ocho pushes cuesta ocho revisiones para revisar lo mismo.
 # Revisa cuando el PR se abre y cuando se marca listo. Para pedir una revisión extra,
@@ -28,7 +29,13 @@ jobs:
           fetch-depth: 1
       - uses: anthropics/claude-code-action@v1
         with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          # Genera el token con `claude setup-token` (requiere plan Pro o Max) y guárdalo
+          # como secreto del repo con el nombre exacto CLAUDE_CODE_OAUTH_TOKEN.
+          # PENDIENTE DE VERIFICAR: la guía de la action menciona que "la clasificación de
+          # comentarios en línea requiere anthropic_api_key". No está documentado si eso
+          # degrada o rompe los comentarios en línea de abajo. Compruébalo en el primer PR
+          # real; si falla, claude.yml (el de @claude) no tiene esa limitación.
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           plugin_marketplaces: "https://github.com/anthropics/claude-code.git"
           plugins: "code-review@claude-code-plugins"
           prompt: "/code-review:code-review --comment ${{ github.repository }}/pull/${{ github.event.pull_request.number }}"

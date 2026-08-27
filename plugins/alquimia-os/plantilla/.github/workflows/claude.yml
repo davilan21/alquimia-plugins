@@ -23,5 +23,10 @@ jobs:
           fetch-depth: 1
       - uses: anthropics/claude-code-action@v1
         with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          # Autentica con tu SUSCRIPCIÓN (Pro/Max), no con una cuenta de API de prepago.
+          # Genera el token con `claude setup-token` y guárdalo como secreto del repo
+          # con el nombre exacto CLAUDE_CODE_OAUTH_TOKEN.
+          # Consecuencia: no hay factura por token; el consumo sale de tu cupo de suscripción,
+          # el mismo que usas en sesiones interactivas.
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           claude_args: "--max-turns 40"

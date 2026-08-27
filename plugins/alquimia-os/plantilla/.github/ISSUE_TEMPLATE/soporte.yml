@@ -1,0 +1,52 @@
+name: Reporte de soporte
+description: Formato estándar para reportes de cliente. Este formato es lo que permite que un agente lo trabaje solo.
+title: "[Soporte] "
+labels: ["soporte", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Entre más específico el reporte, menos ida y vuelta.
+  - type: input
+    id: cliente
+    attributes:
+      label: Cliente / sede / usuario
+    validations: { required: true }
+  - type: textarea
+    id: que-paso
+    attributes:
+      label: Qué intentabas hacer y qué pasó
+      description: Paso a paso. "Entré a X, hice clic en Y, apareció Z."
+    validations: { required: true }
+  - type: textarea
+    id: esperado
+    attributes:
+      label: Qué esperabas que pasara
+    validations: { required: true }
+  - type: input
+    id: cuando
+    attributes:
+      label: Cuándo ocurrió (fecha y hora aproximada)
+      description: Sirve para cruzar con los logs.
+    validations: { required: true }
+  - type: dropdown
+    id: frecuencia
+    attributes:
+      label: ¿Pasa siempre?
+      options: ["Siempre que lo intento", "A veces", "Solo pasó una vez"]
+    validations: { required: true }
+  - type: dropdown
+    id: impacto
+    attributes:
+      label: Impacto
+      options: ["Bloqueante — no puedo trabajar", "Molesto — hay forma de darle la vuelta", "Menor — cosmético"]
+    validations: { required: true }
+  - type: input
+    id: identificador
+    attributes:
+      label: Identificador del registro afectado
+      description: Solo el identificador, sin datos sensibles.
+  - type: textarea
+    id: evidencia
+    attributes:
+      label: Captura de pantalla o video

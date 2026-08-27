@@ -1,0 +1,41 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/scripts/post-edit.sh",
+            "statusMessage": "alquimia: verificando el archivo editado…",
+            "timeout": 90
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/scripts/pre-entrega.sh",
+            "statusMessage": "alquimia: corriendo la suite antes de cerrar…",
+            "timeout": 600
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/scripts/memoria-guard.sh",
+            "statusMessage": "alquimia: revisando higiene de memoria…",
+            "timeout": 20
+          }
+        ]
+      }
+    ]
+  }
+}

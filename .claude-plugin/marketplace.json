@@ -1,0 +1,27 @@
+{
+  "name": "alquimia",
+  "owner": {
+    "name": "Alquimia",
+    "url": "https://github.com/davilan21"
+  },
+  "description": "El sistema operativo agéntico de Alquimia: cómo se diagnostica, se implementa, se revisa y se recuerda en todos los proyectos.",
+  "plugins": [
+    {
+      "name": "alquimia-os",
+      "source": "./plugins/alquimia-os",
+      "description": "Agentes, skills y barandas para operar cualquier proyecto de Alquimia con el mismo estándar.",
+      "version": "2.0.0",
+      "author": {
+        "name": "Alquimia"
+      },
+      "category": "workflow",
+      "tags": [
+        "construir",
+        "ux",
+        "soporte",
+        "revision",
+        "memoria"
+      ]
+    }
+  ]
+}

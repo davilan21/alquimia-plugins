@@ -1,0 +1,35 @@
+# COSTO: cada corrida consume minutos de GitHub Actions Y uso de tu suscripción.
+# Por eso NO incluye "synchronize": con él, cada push a la rama dispara una revisión
+# entera. Un PR con ocho pushes cuesta ocho revisiones para revisar lo mismo.
+# Revisa cuando el PR se abre y cuando se marca listo. Para pedir una revisión extra,
+# comenta "@claude revisa esto de nuevo" en el PR.
+name: Revisión de PR
+on:
+  pull_request:
+    types: [opened, ready_for_review, reopened]
+
+concurrency:
+  group: revision-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  review:
+    if: github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      pull-requests: read
+      issues: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+      - uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          plugin_marketplaces: "https://github.com/anthropics/claude-code.git"
+          plugins: "code-review@claude-code-plugins"
+          prompt: "/code-review:code-review --comment ${{ github.repository }}/pull/${{ github.event.pull_request.number }}"
+          claude_args: '--allowedTools "mcp__github_inline_comment__create_inline_comment"'

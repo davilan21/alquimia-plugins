@@ -1,0 +1,6 @@
+# Archivos que crea el Finder de macOS
+.DS_Store
+
+# Sobras que deja Python al ejecutarse
+__pycache__/
+*.pyc

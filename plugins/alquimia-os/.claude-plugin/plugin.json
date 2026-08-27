@@ -1,0 +1,12 @@
+{
+  "name": "alquimia-os",
+  "description": "El sistema operativo agéntico de Alquimia. Dos modos — construir y sostener — con agentes, skills y barandas que se aplican solas en cualquier repositorio.",
+  "version": "2.0.0",
+  "author": {
+    "name": "Alquimia"
+  },
+  "license": "UNLICENSED",
+  "experimental": {
+    "evals": "evals"
+  }
+}

@@ -1,8 +1,8 @@
 ---
-description: Construye la primera rebanada vertical de un proyecto nuevo — un flujo completo de punta a punta con test y despliegue — antes de construir cualquier otra cosa.
+description: Construye el primer flujo de punta a punta de un proyecto nuevo — un camino completo que atraviesa todas las capas, con test y despliegue — antes de construir cualquier otra cosa.
 ---
 
-# Primera rebanada vertical
+# Primer flujo de punta a punta
 
 Flujo a construir (si no se indica, tómalo de la definición del proyecto):
 
@@ -14,10 +14,11 @@ La tentación al arrancar es construir a lo ancho: todas las pantallas, todos lo
 modelos, todo el CRUD. Se ve productivo y es la forma más confiable de terminar con
 cuarenta archivos que nunca se probaron juntos.
 
-Una rebanada vertical construye **un solo flujo que atraviesa todas las capas**. Es
-poco código, pero valida lo caro: que el stack encaja, que el modelo de datos aguanta,
-que el despliegue funciona, que la autenticación no estorba. Los problemas que hunden
-un proyecto aparecen en las costuras entre capas, y una rebanada las cruza todas.
+Construir de punta a punta es lo contrario: **un solo camino que atraviesa todas las
+capas**. Es poco código, pero valida lo caro: que el stack encaja, que el modelo de
+datos aguanta, que el despliegue funciona, que la autenticación no estorba. Los
+problemas que hunden un proyecto aparecen en las costuras entre capas, y este camino
+las cruza todas.
 
 Multiplicar a lo ancho después de esto es barato. Antes, es apostar.
 
@@ -25,8 +26,8 @@ Multiplicar a lo ancho después de esto es barato. Antes, es apostar.
 
 ### 1. Plan primero
 Escribe qué archivos vas a crear y por qué, antes de crear ninguno. Máximo una
-pantalla de texto. Si la lista pasa de doce archivos, la rebanada es demasiado gruesa:
-recórtala.
+pantalla de texto. Si la lista pasa de doce archivos, el flujo es demasiado grueso:
+recórtalo.
 
 ### 2. El esqueleto que corre
 Antes de la lógica: que el proyecto arranque, compile y muestre algo en pantalla.
@@ -46,16 +47,16 @@ Antes de dar por hecha la interfaz, implementa los estados que definió la fase 
 experiencia: vacío, cargando, error y datos extremos. Una tabla vacía sin texto es la
 forma más rápida de que alguien crea que el sistema se dañó.
 
-Si esta rebanada tiene interfaz y no hubo fase de experiencia, delega en el subagente
+Si este flujo tiene interfaz y no hubo fase de experiencia, delega en el subagente
 `disenador-ux` antes de seguir. No inventes los estados sobre la marcha.
 
 ### 6. El test de humo — este paso no es opcional
 Un test end-to-end que recorre el flujo completo como lo haría una persona.
 **Uno solo, del camino feliz.**
 
-Este test es la razón entera de la rebanada: es la primera baranda del proyecto, y
+Este test es la razón entera de construir así: es la primera baranda del proyecto, y
 si no se escribe ahora no se escribe nunca — después siempre hay algo más urgente.
-A partir de aquí, cada rebanada nueva agrega su test y el proyecto nunca está sin red.
+A partir de aquí, cada flujo nuevo agrega su test y el proyecto nunca está sin red.
 
 ### 7. Desplegar
 A un entorno real, aunque no lo use nadie todavía. Desplegar es la parte que siempre
@@ -80,4 +81,4 @@ Descubrirlo con doce archivos es una tarde; descubrirlo con doscientos es una se
 ## Después
 
 De aquí en adelante el proyecto ya no es "nuevo": cada cosa que agregues entra por
-`/alquimia-os:feature`, una rebanada a la vez.
+`/alquimia-os:feature`, un flujo a la vez.

@@ -53,8 +53,8 @@ funcionalidad, de datos a interfaz, funcionando de punta a punta. No dejes la mi
 hecha "para completar después": la mitad sin terminar de una funcionalidad es
 indistinguible de un bug, y alguien la va a encontrar.
 
-Si no cabe en un PR razonable, pártela en rebanadas que cada una sirva para algo por
-sí sola. "Fase 1: la parte de atrás; fase 2: la pantalla" no es partir en rebanadas —
+Si no cabe en un PR razonable, pártela en flujos que cada uno sirva para algo por
+sí solo. "Fase 1: la parte de atrás; fase 2: la pantalla" no es partir en flujos —
 la fase 1 no le sirve a nadie.
 
 **Quién escribe el código: tú, la sesión principal.** Los subagentes de este plugin no

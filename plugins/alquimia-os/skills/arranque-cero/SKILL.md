@@ -1,5 +1,5 @@
 ---
-description: Fase de definición de un proyecto nuevo, antes de escribir una sola línea. Produce el alcance, las decisiones irreversibles y el plan de la primera rebanada. No genera código.
+description: Fase de definición de un proyecto nuevo, antes de escribir una sola línea. Produce el alcance, las decisiones irreversibles y el plan del primer flujo. No genera código.
 ---
 
 # Arranque desde cero — definición
@@ -85,7 +85,7 @@ Esta respuesta se convierte en una regla de dominio del `CLAUDE.md` y en una reg
 bloqueante del `REVIEW.md`. Meterla el día uno cuesta una frase; meterla el mes seis
 cuesta una auditoría.
 
-## 5. La primera rebanada
+## 5. El primer flujo
 
 Define **un solo flujo completo, de punta a punta**, que atraviese todas las capas
 del sistema: entrada del usuario → lógica → datos → salida visible.
@@ -124,7 +124,7 @@ Qué nunca sale en logs, errores, URLs o analytics.
 ## Experiencia
 Contexto de uso · flujo en pasos de persona · los cinco estados por pantalla.
 
-## Primera rebanada
+## Primer flujo
 El flujo exacto, punta a punta.
 
 ## Fuera de alcance por ahora
@@ -132,4 +132,4 @@ Lo que sabemos que hará falta y decidimos no hacer todavía.
 ```
 
 Cuando esté aprobado: `/alquimia-os:nuevo-proyecto` para instrumentar el repositorio,
-y después `/alquimia-os:rebanada` para construir.
+y después `/alquimia-os:punta-a-punta` para construir.

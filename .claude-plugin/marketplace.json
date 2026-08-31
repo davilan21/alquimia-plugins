@@ -10,7 +10,7 @@
       "name": "alquimia-os",
       "source": "./plugins/alquimia-os",
       "description": "Agentes, skills y barandas para operar cualquier proyecto de Alquimia con el mismo estándar.",
-      "version": "2.0.1",
+      "version": "2.1.0",
       "author": {
         "name": "Alquimia"
       },

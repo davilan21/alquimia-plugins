@@ -26,7 +26,7 @@ Confundirlos es de donde vienen la mayoría de los problemas.
 |---|---|---|
 | Qué pasa | No existe todavía | Ya existe y hay que no romperlo |
 | El riesgo | Construir la cosa equivocada, o de una forma que estorbe en 6 meses | La regresión: arreglar A y romper B |
-| La baraja | `arranque-cero` → `nuevo-proyecto` → `rebanada` → `feature` | `soporte` → `preflight` → `postmortem` |
+| La baraja | `arranque-cero` → `nuevo-proyecto` → `punta-a-punta` → `feature` | `soporte` → `preflight` → `postmortem` |
 | La disciplina clave | Decidir a propósito antes de escribir | Test que falla antes del arreglo |
 
 ## Agentes
@@ -51,7 +51,7 @@ Se invocan con `/alquimia-os:<nombre>`.
 |---|---|---|
 | `arranque-cero` | Definición, experiencia y decisiones irreversibles. **No escribe código** | Construir |
 | `nuevo-proyecto` | Entrevista e instrumenta el repositorio | Construir |
-| `rebanada` | La primera rebanada vertical, con test y despliegue | Construir |
+| `punta-a-punta` | El primer flujo completo, con test y despliegue | Construir |
 | `feature` | Funcionalidad nueva en un proyecto que ya existe | Construir |
 | `soporte` | Reporte de cliente → PR listo para revisión | Sostener |
 | `preflight` | Verificación completa antes de mezclar | Ambos |

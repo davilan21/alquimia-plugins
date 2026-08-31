@@ -89,21 +89,53 @@ tiene contenido de ningún lenguaje. Ese hueco lo llenan otros:
 
 | Necesitas | Usa | Dónde se enciende |
 |---|---|---|
-| Next.js, React, Turbopack, shadcn | plugin `vercel` | Global — ya está encendido |
+| Next.js, React, Turbopack, shadcn | plugin `vercel` | Global |
 | Accesibilidad, WCAG, lectores de pantalla | `accessibility-compliance` | **En la plantilla** — le llega a todos |
-| Python a fondo (16 skills) | `python-development@claude-code-workflows` | **Solo en el repo que sea Python primario** |
-| Postgres / PLpgSQL | `database-design` | Global — ya está encendido |
+| CI/CD, GitHub Actions | `cicd-automation` | Global |
+| SOC2 / HIPAA / GDPR, escaneo de secretos | `security-compliance` | Global |
+| Seguridad de API, autenticación, límites | `backend-api-security` | Global |
+| XSS, CSRF, CSP | `frontend-mobile-security` | Global |
+| React Native, patrones de estado, Tailwind | `frontend-mobile-development` | Global |
+| Node, TypeScript, testing en JS | `javascript-typescript` | Global |
+| Documentación y OpenAPI | `code-documentation`, `documentation-generation` | Global |
+| Rendimiento y cobertura | `performance-testing-review` | Global |
+| Flujo de PRs | `git-pr-workflows` | Global |
+| Postgres / PLpgSQL | `database-design` | Global |
+| **Python a fondo** (16 skills) | `python-development` | **Solo en el repo que sea Python primario** |
+| **Arquitectura de backend** (CQRS, colas) | `backend-development` | **Solo donde el problema tenga esa forma** |
 
-**Lo que NO se enciende, y por qué:**
+Los dos últimos van por proyecto porque son los más pesados —~1.200 tokens cada uno— y
+no aplican en todas partes. Se encienden en el `.claude/settings.json` **del repositorio
+del cliente**, no en el global.
 
-- `backend-development` — habla de CQRS, event sourcing, microservicios y sagas. Es
-  vocabulario de escala empresarial y sesga en contra de lo que el `arquitecto` busca:
-  menos piezas, nada construido para una escala que no existe.
-- `frontend-mobile-development` — su contenido apunta a Next.js 14/15 y sus agentes se
-  auto-invocan. El plugin de `vercel` cubre lo mismo, al día y mantenido por ellos.
-- `javascript-typescript` — casi todo es *"Master ES6+"*: conocimiento que el modelo ya
-  tiene, empaquetado como skill.
+**Lo que sigue apagado:**
+
 - `ui-design` — se pisa con `ui-ux-pro-max` y con `tablero`.
+- `cloud-infrastructure` — AWS, Azure, GCP, Terraform, Kubernetes. La casa corre sobre
+  Vercel y Supabase.
+- `error-debugging`, `error-diagnostics`, `debugging-toolkit`, `distributed-debugging` —
+  cuatro plugins solapados y sin skills. `superpowers:systematic-debugging` ya cubre eso
+  con procedimiento de verdad.
+- `code-refactoring`, `codebase-cleanup`, `full-stack-orchestration`,
+  `agent-orchestration`, `context-management`, `c4-architecture`, `web-scripting`,
+  `meigen-ai-design`, `team-collaboration`, `api-testing-observability`.
+
+### Dos cosas que hay que vigilar
+
+**La mayoría de los agentes de terceros dicen "Use PROACTIVELY"**: se proponen solos, no
+esperan a que los llames. Con la configuración actual hay unos 40 agentes en esa
+situación. Si empiezan a aparecer donde no aportan, el problema no es el agente: es que
+sobra el plugin. Apágalo.
+
+**El costo se paga en cada sesión.** Para medirlo:
+
+```bash
+claude plugin details <nombre> | grep Always-on
+```
+
+Si el total pasa de ~20.000 tokens antes de empezar a trabajar, toca podar. Los
+candidatos a podar primero son los que tienen muchos agentes y ninguna skill: los
+agentes suelen ser persona de rol, las skills suelen ser procedimiento.
 
 ### 5. Revisar
 

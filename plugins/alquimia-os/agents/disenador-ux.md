@@ -96,7 +96,18 @@ tocar con el dedo, foco visible al navegar con teclado, nada que dependa solo de
 para comunicar. Si el sistema lo usa personal operativo durante ocho horas, esto es
 salud laboral, no cumplimiento.
 
-## 7. Cuando llegue el momento del píxel
+## 7. Si la pantalla es una superficie de datos
+
+Antes que el estilo visual: si lo que se va a construir es una **tabla de registros,
+una bandeja de conversaciones, un panel de métricas, una ficha o un formulario**, la
+skill `tablero` va **primero**. Trae dos cosas que este documento no cubre: qué
+librería probada se usa en vez de construir desde cero, y el oficio propio de cada una
+de esas superficies (alineación, umbrales de filas, los dos tipos de estado vacío).
+
+Los cinco estados que definiste en la sección 4 son la entrada de esa skill: ella los
+implementa, no los vuelve a decidir.
+
+## 8. Cuando llegue el momento del píxel
 
 Cuando la conversación pase a estilo visual, paletas, tipografías, tokens o componentes
 concretos, **usa la skill `ui-ux-pro-max`**: tiene la biblioteca de estilos, paletas, pares

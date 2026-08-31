@@ -3,6 +3,9 @@
 El marketplace de Alquimia. Un solo lugar donde vive **cómo se trabaja**, para que los
 6 proyectos hereden el mismo estándar sin copiar carpetas a mano.
 
+**¿Arrancando un proyecto nuevo?** → [`ARRANQUE.md`](ARRANQUE.md): qué usar en cada
+fase, entre lo propio y lo de terceros, y qué NO encender.
+
 ## Instalar (una vez por máquina)
 
 ```bash
@@ -19,11 +22,19 @@ En `.claude/settings.json` del repositorio del cliente:
 ```json
 {
   "extraKnownMarketplaces": {
-    "alquimia": { "source": { "source": "github", "repo": "davilan21/alquimia-plugins" } }
+    "alquimia": { "source": { "source": "github", "repo": "davilan21/alquimia-plugins" } },
+    "claude-code-workflows": { "source": { "source": "github", "repo": "wshobson/agents" } }
   },
-  "enabledPlugins": { "alquimia-os@alquimia": true }
+  "enabledPlugins": {
+    "alquimia-os@alquimia": true,
+    "accessibility-compliance@claude-code-workflows": true
+  }
 }
 ```
+
+`nuevo-proyecto` ya lo instala así. Es el único mecanismo que también alcanza al bot,
+al formulario de soporte y a las rutinas: ahí no hay ninguna máquina con configuración
+personal, solo existe lo que está en el repositorio.
 
 ## Actualizar todos los proyectos a la vez
 

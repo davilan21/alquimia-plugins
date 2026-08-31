@@ -2,10 +2,14 @@
   "extraKnownMarketplaces": {
     "alquimia": {
       "source": { "source": "github", "repo": "davilan21/alquimia-plugins" }
+    },
+    "claude-code-workflows": {
+      "source": { "source": "github", "repo": "wshobson/agents" }
     }
   },
   "enabledPlugins": {
-    "alquimia-os@alquimia": true
+    "alquimia-os@alquimia": true,
+    "accessibility-compliance@claude-code-workflows": true
   },
   "permissions": {
     "allow": [

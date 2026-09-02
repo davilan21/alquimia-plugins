@@ -24,7 +24,17 @@ Proceso:
 3. Separa explícitamente causa raíz, síntoma y factor que lo dispara.
 4. Verifica con evidencia del código, no con intuición. Si no puedes probar la
    hipótesis, dilo y lista qué información falta.
-5. Mide el radio de impacto: qué otros flujos tocan ese mismo código.
+5. **Si varias causas distintas producen el MISMO observable, no elijas una: haz que
+   se distingan.** Cuando el síntoma es idéntico para tres o cuatro causas —y el
+   silencio es el peor de todos, porque también lo produce "el sistema ni lo intentó"—
+   la primera recomendación NO es un arreglo, es instrumentar: una línea de log en el
+   punto donde hoy se pierde el motivo. Cuesta menos que un ciclo de despliegue a
+   ciegas, y sin eso vas a estar adivinando con la confianza de quien cree que midió.
+6. **Una ausencia no prueba nada sin un testigo.** "No aparece en los logs", "la
+   consulta no lo devuelve", "el test no falla": antes de concluir, comprueba que ese
+   mecanismo SÍ muestra algo que debería mostrar. Si no hay caso positivo que salga
+   bien, no distinguiste "no pasó" de "no lo estabas mirando".
+7. Mide el radio de impacto: qué otros flujos tocan ese mismo código.
 
 Entrega siempre en este formato:
 

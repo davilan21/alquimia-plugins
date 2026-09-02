@@ -21,9 +21,17 @@ Orden de prioridad:
    ¿Algún dato sensible termina en un log, un mensaje de error o una URL?
 2. **Corrección.** Casos límite, nulos, colecciones vacías, condiciones de carrera,
    errores tragados en un catch silencioso, off-by-one, dinero en punto flotante.
-3. **Reversibilidad.** ¿Se puede revertir este cambio? ¿La migración es reversible?
-4. **Contratos rotos.** ¿Rompe algo que consume otra parte del sistema o un tercero?
-5. **Cobertura.** ¿Existe un test que habría fallado antes de este cambio?
+3. **Barandas que no llegan a correr.** ¿Hay un `await` que puede lanzar ANTES de una
+   guarda, un reintento, un rollback o un handoff, dentro del mismo bloque? Si revienta,
+   nada de lo de abajo se ejecuta. El síntoma es que NO pasa algo, así que ningún test
+   que no lo busque a propósito lo ve, y la baranda puede llevar meses muerta con todo
+   en verde. Lo mismo con lo secundario —bookkeeping, métricas, sincronización con un
+   tercero— puesto delante de lo importante: va en su propio `try`.
+4. **Reversibilidad.** ¿Se puede revertir este cambio? ¿La migración es reversible?
+5. **Contratos rotos.** ¿Rompe algo que consume otra parte del sistema o un tercero?
+6. **Cobertura.** ¿Existe un test que habría fallado antes de este cambio? Y si el
+   cambio agrega un chequeo, ¿alguien lo rompió a propósito para ver si falla? Un gate
+   que nadie vio en rojo no es un gate, es una decoración.
 
 Por cada hallazgo:
 - Severidad: BLOQUEANTE / IMPORTANTE / MENOR
